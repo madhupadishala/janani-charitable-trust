@@ -1,0 +1,19 @@
+{
+  "name": "janani-publishing-cms",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "express": "4.21.2",
+    "better-sqlite3": "11.8.1",
+    "helmet": "8.0.0",
+    "express-rate-limit": "7.5.0",
+    "sanitize-html": "2.14.0",
+    "multer": "1.4.5-lts.1"
+  }
+}
