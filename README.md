@@ -1,40 +1,34 @@
 # Janani Charitable Trust — Publishing CMS + Public Site
 
-Source package for the Janani *Our Work & Stories* editorial system and public website.
+Source package for Janani Charitable Trust's public website and team Publishing Studio.
 
-## What’s included
+## Included
 
-- **Public homepage** (`public/index.html`) — polished landing page with sections for Our Work, Gallery, and Call-to-Action. Ready for the real field photographs.
-- **Publishing Studio** (`public/admin.html`) — team login, post composition, cover photos, and immediate publish.
+- **Public homepage** (`public/index.html`) — Our Work, live photo gallery, and contact sections.
+- **Publishing Studio** (`public/admin.html`) — authenticated story publishing and homepage photo management.
 - **Story viewer** (`public/story.html`) — individual published posts.
-- Backend (SQLite + Express) for authentication, posts, and media storage.
+- **Backend** — Express, SQLite, authenticated uploads, and audit logging.
 
-## Real photographs ready
+## Homepage photographs
 
-The 12 images from the WhatsApp export (medical camps, blood donation, school supplies distribution, children’s birthday celebrations, community meals) have been prepared and optimised.  
+The homepage gallery is populated from photographs uploaded in Publishing Studio. The newest 12 uploads appear on the homepage; the newest photograph is also used as the hero background. Each upload includes a short description used as its accessible image text and gallery caption.
 
-**To place them on the site:**
-1. Start the CMS (`npm install && npm start`).
+To add genuine Janani photographs:
+
+1. Start the application with `npm install && npm start`.
 2. Sign in at `/admin.html`.
-3. Create / edit posts and upload the photos as cover images or insert them in the body.
-4. Or place the files under `public/media/` and update the `src` attributes in `public/index.html` gallery cards.
+3. Open **Photo gallery**, enter a factual description, and upload a JPEG, PNG, or WebP image (maximum 3 MB).
+4. The uploaded photograph is stored in the configured media directory and appears on the homepage automatically.
 
-Clean filenames prepared locally:
-- `medical-camp-consultation.jpg`
-- `blood-donation-camp.jpg`
-- `school-supplies-distribution.jpg`
-- `birthday-gift-child.jpg`
-- `community-event.jpg`
-- `celebration-moment.jpg`
-- and 6 more variants.
+The application stores uploaded files under `JANANI_DATA_DIR/media` (default: `data/media`). Configure `JANANI_DATA_DIR` to a persistent volume in production; the default local filesystem is not durable on ephemeral hosting platforms.
 
-## Intended workflow
-An administrator creates writer accounts. Writers authenticate, create posts with images, select a website section, and publish directly. Published content appears on the public website.
+**Important:** Original WhatsApp photographs must be uploaded by the Janani team. No claim is made that the original 12 photographs are present in this repository.
 
-## Current status
-Public homepage is complete and polished. The CMS still uses local SQLite + disk storage — suitable for development and small deployments. For production, add a persistent database and object storage (S3 / Cloudflare R2 / etc.).
+## Publishing workflow
 
-Do not commit `.env`, tokens, database files or uploaded private data.
+Administrators create writer accounts. Writers sign in, create stories, upload cover or inline images, select a website section, and publish. Homepage gallery uploads are managed separately in the Photo gallery tab.
+
+## Development
 
 ```bash
 npm install
@@ -42,4 +36,6 @@ npm test
 npm start
 ```
 
-Then open http://localhost:3000 (or the configured port).
+Open http://localhost:3000 (or the configured port).
+
+Do not commit `.env`, tokens, database files, or uploaded private data.
