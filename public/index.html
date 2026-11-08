@@ -23,8 +23,7 @@
   .hero::before {
     content: "";
     position: absolute; inset: 0;
-    background: url("PLACEHOLDER_HERO") center/cover no-repeat;
-    opacity: 0.25;
+    background: radial-gradient(circle at 30% 40%, rgba(215,100,51,0.25), transparent 55%);
   }
   .hero-inner { position: relative; max-width: 820px; }
   .hero h1 { font: 700 48px/1.12 Georgia, serif; margin: 0 0 18px; }
@@ -51,7 +50,12 @@
     border: 1px solid #e6e6dd;
     box-shadow: 0 12px 36px #1c30200a;
   }
-  .card-img img { width: 100%; height: 210px; object-fit: cover; display: block; }
+  .card-img .img-placeholder {
+    width: 100%; height: 210px;
+    background: linear-gradient(135deg, #e8f0eb, #d4e4d8);
+    display: grid; place-items: center;
+    color: #5a7a6a; font-size: 14px; font-weight: 600;
+  }
   .card-img .body { padding: 18px 20px 22px; }
   .card-img h3 { margin: 0 0 6px; font: 650 17px system-ui; color: var(--green); }
   .card-img p { margin: 0; font-size: 14px; color: #69776e; line-height: 1.5; }
@@ -128,24 +132,24 @@
 
 <section class="section" id="gallery" style="padding-top:12px">
   <h2>Recent moments from the field</h2>
-  <p class="lead">Real photographs — the people, the care, and the quiet joy of service.</p>
+  <p class="lead">Upload the real photographs via the Publishing Studio (Team Login) and replace the placeholders below with the media URLs. The 12 images you shared are ready for this gallery.</p>
   <div class="grid">
     <article class="card-img">
-      <img src="PLACEHOLDER_G1" alt="Blood donation camp organised by Janani Charitable Trust">
+      <div class="img-placeholder">Blood Donation Camp<br><small>Upload photo here</small></div>
       <div class="body">
         <h3>Blood Donation Camp</h3>
         <p>Volunteers and donors coming together so that no family is left without a critical unit of blood.</p>
       </div>
     </article>
     <article class="card-img">
-      <img src="PLACEHOLDER_G2" alt="School supplies distribution by Janani Charitable Trust">
+      <div class="img-placeholder">School Supplies Drive<br><small>Upload photo here</small></div>
       <div class="body">
         <h3>School Supplies Drive</h3>
         <p>Notebooks, kits and encouragement delivered to students in remote villages so learning never stops for want of materials.</p>
       </div>
     </article>
     <article class="card-img">
-      <img src="PLACEHOLDER_G3" alt="Child receiving birthday gift from Janani">
+      <div class="img-placeholder">Birthday of Dignity<br><small>Upload photo here</small></div>
       <div class="body">
         <h3>Birthday of Dignity</h3>
         <p>A simple cake, a banana, a bottle of water — and a smile that says someone remembered.</p>
