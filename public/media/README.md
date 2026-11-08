@@ -1,24 +1,14 @@
-# Field Photographs — Janani Charitable Trust
+# Janani Charitable Trust — homepage photographs
 
-Place the optimised JPEGs from the WhatsApp export here (or upload them through the Publishing Studio).
+The public homepage reads its gallery from the media records created by authenticated Publishing Studio uploads. Do not add hardcoded image paths to `public/index.html`.
 
-## Suggested filenames (already prepared)
+## Upload workflow
 
-| File | Description |
-|------|-------------|
-| medical-camp-consultation.jpg | Doctor consultation at medical camp |
-| blood-donation-camp.jpg | Blood donation drive in progress |
-| school-supplies-distribution.jpg | Students receiving school kits |
-| birthday-gift-child.jpg | Child receiving birthday gift & fruit |
-| community-event.jpg | Community meal service |
-| celebration-moment.jpg | Joyful moment from an event |
-| medical-camp-team.jpg | Team at medical camp |
-| outreach-program.jpg | Outreach activity |
-| trust-activity.jpg | General Trust activity |
-| event-portrait.jpg | Portrait from an event |
-| medical-camp-detail.jpg | Detail shot from camp |
-| medical-camp-detail-2.jpg | Another camp detail |
+1. Sign in to `/admin.html`.
+2. Open **Photo gallery**.
+3. Add a factual caption and upload a JPEG, PNG, or WebP photograph (maximum 3 MB).
+4. The latest 12 uploaded photographs appear on the homepage. The newest photograph is also used as the hero background.
 
-After placing the files, update the gallery cards in `public/index.html` (replace the `.img-placeholder` divs with `<img src="/media/filename.jpg" alt="...">`).
+Uploaded files are stored outside the static source directory at `JANANI_DATA_DIR/media` (default `data/media`) and served through `/uploads/`. Production deployments must mount this directory on persistent storage.
 
-These images replace any previous stock / synthetic artwork and give the public site an authentic finish.
+Only upload authentic photographs approved for public display by Janani Charitable Trust. Obtain appropriate consent before publishing identifiable beneficiaries, especially children. The repository does not currently contain the original WhatsApp photo collection.
