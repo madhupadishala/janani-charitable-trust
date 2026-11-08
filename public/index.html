@@ -23,7 +23,7 @@
   .hero::before {
     content: "";
     position: absolute; inset: 0;
-    background: url("/media/medical-camp-consultation.jpg") center/cover no-repeat;
+    background: var(--hero-image, none) center/cover no-repeat;
     opacity: 0.28;
   }
   .hero-inner { position: relative; max-width: 820px; }
@@ -136,50 +136,8 @@
 <section class="section" id="gallery" style="padding-top:12px">
   <h2>Recent moments from the field</h2>
   <p class="lead">Real photographs from Janani’s medical camps, blood donation drives, school support and community celebrations.</p>
-  <div class="grid">
-    <article class="card-img">
-      <img src="/media/blood-donation-camp.jpg" alt="Blood donation camp organised by Janani Charitable Trust">
-      <div class="body">
-        <h3>Blood Donation Camp</h3>
-        <p>Volunteers and donors coming together so that no family is left without a critical unit of blood.</p>
-      </div>
-    </article>
-    <article class="card-img">
-      <img src="/media/school-supplies-distribution.jpg" alt="School supplies distribution by Janani Charitable Trust">
-      <div class="body">
-        <h3>School Supplies Drive</h3>
-        <p>Notebooks, kits and encouragement delivered to students in remote villages so learning never stops for want of materials.</p>
-      </div>
-    </article>
-    <article class="card-img">
-      <img src="/media/birthday-gift-child.jpg" alt="Child receiving birthday gift from Janani">
-      <div class="body">
-        <h3>Birthday of Dignity</h3>
-        <p>A simple cake, a banana, a bottle of water — and a smile that says someone remembered.</p>
-      </div>
-    </article>
-    <article class="card-img">
-      <img src="/media/medical-camp-consultation.jpg" alt="Medical camp consultation">
-      <div class="body">
-        <h3>Medical Camps</h3>
-        <p>Doctors, medicines and listening ears reaching villages where a clinic visit is otherwise a long journey.</p>
-      </div>
-    </article>
-    <article class="card-img">
-      <img src="/media/community-event.jpg" alt="Community meal service by Janani team">
-      <div class="body">
-        <h3>Community Meals</h3>
-        <p>Hot food served with care under the trees — because hunger should never be the story of the day.</p>
-      </div>
-    </article>
-    <article class="card-img">
-      <img src="/media/celebration-moment.jpg" alt="Celebration moment">
-      <div class="body">
-        <h3>Moments of Joy</h3>
-        <p>Festivals, small gatherings and the ordinary days that become extraordinary when shared.</p>
-      </div>
-    </article>
-  </div>
+  <div class="grid" id="photo-gallery" aria-live="polite"><p class="lead">Janani field photographs will appear here when the team uploads them.</p></div>
+
 </section>
 
 <section class="section" id="contact">
@@ -195,5 +153,50 @@
   <p style="margin-top:8px">Hyderabad · Telangana & Andhra Pradesh</p>
   <p style="margin-top:14px"><a href="/admin.html">Publishing Studio</a> · <a href="#work">Our Work</a></p>
 </footer>
+<script>
+(async function loadJananiGallery(){
+  const gallery=document.getElementById('photo-gallery');
+  const hero=document.querySelector('.hero');
+  try{
+    const response=await fetch('/api/media',{headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error('Gallery unavailable');
+    const photos=await response.json();
+    gallery.replaceChildren();
+    if(!photos.length){
+      const empty=document.createElement('p');
+      empty.className='lead';
+      empty.textContent='Photographs from Janani activities will appear here soon.';
+      gallery.append(empty);
+      return;
+    }
+    photos.forEach((photo,index)=>{
+      const article=document.createElement('article');
+      article.className='card-img';
+      const image=document.createElement('img');
+      image.src=photo.path;
+      image.alt=photo.caption||'Janani activity photograph';
+      image.loading=index<3?'eager':'lazy';
+      image.decoding='async';
+      image.onerror=()=>article.remove();
+      const body=document.createElement('div');
+      body.className='body';
+      const heading=document.createElement('h3');
+      heading.textContent=photo.caption||'Janani activity photograph';
+      const description=document.createElement('p');
+      description.textContent='A moment from the work of Janani Charitable Trust.';
+      body.append(heading,description);
+      article.append(image,body);
+      gallery.append(article);
+      if(index===0)hero.style.setProperty('--hero-image',`url("${photo.path}")`);
+    });
+  }catch{
+    gallery.replaceChildren();
+    const empty=document.createElement('p');
+    empty.className='lead';
+    empty.textContent='Our field photographs will be available here shortly.';
+    gallery.append(empty);
+  }
+})();
+</script>
 </body>
 </html>
