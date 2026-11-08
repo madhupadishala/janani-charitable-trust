@@ -23,7 +23,8 @@
   .hero::before {
     content: "";
     position: absolute; inset: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(215,100,51,0.25), transparent 55%);
+    background: url("/media/medical-camp-consultation.jpg") center/cover no-repeat;
+    opacity: 0.28;
   }
   .hero-inner { position: relative; max-width: 820px; }
   .hero h1 { font: 700 48px/1.12 Georgia, serif; margin: 0 0 18px; }
@@ -49,12 +50,14 @@
     overflow: hidden;
     border: 1px solid #e6e6dd;
     box-shadow: 0 12px 36px #1c30200a;
+    transition: transform .2s ease;
   }
-  .card-img .img-placeholder {
-    width: 100%; height: 210px;
-    background: linear-gradient(135deg, #e8f0eb, #d4e4d8);
-    display: grid; place-items: center;
-    color: #5a7a6a; font-size: 14px; font-weight: 600;
+  .card-img:hover { transform: translateY(-3px); }
+  .card-img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
   }
   .card-img .body { padding: 18px 20px 22px; }
   .card-img h3 { margin: 0 0 6px; font: 650 17px system-ui; color: var(--green); }
@@ -132,27 +135,48 @@
 
 <section class="section" id="gallery" style="padding-top:12px">
   <h2>Recent moments from the field</h2>
-  <p class="lead">Upload the real photographs via the Publishing Studio (Team Login) and replace the placeholders below with the media URLs. The 12 images you shared are ready for this gallery.</p>
+  <p class="lead">Real photographs from Janani’s medical camps, blood donation drives, school support and community celebrations.</p>
   <div class="grid">
     <article class="card-img">
-      <div class="img-placeholder">Blood Donation Camp<br><small>Upload photo here</small></div>
+      <img src="/media/blood-donation-camp.jpg" alt="Blood donation camp organised by Janani Charitable Trust">
       <div class="body">
         <h3>Blood Donation Camp</h3>
         <p>Volunteers and donors coming together so that no family is left without a critical unit of blood.</p>
       </div>
     </article>
     <article class="card-img">
-      <div class="img-placeholder">School Supplies Drive<br><small>Upload photo here</small></div>
+      <img src="/media/school-supplies-distribution.jpg" alt="School supplies distribution by Janani Charitable Trust">
       <div class="body">
         <h3>School Supplies Drive</h3>
         <p>Notebooks, kits and encouragement delivered to students in remote villages so learning never stops for want of materials.</p>
       </div>
     </article>
     <article class="card-img">
-      <div class="img-placeholder">Birthday of Dignity<br><small>Upload photo here</small></div>
+      <img src="/media/birthday-gift-child.jpg" alt="Child receiving birthday gift from Janani">
       <div class="body">
         <h3>Birthday of Dignity</h3>
         <p>A simple cake, a banana, a bottle of water — and a smile that says someone remembered.</p>
+      </div>
+    </article>
+    <article class="card-img">
+      <img src="/media/medical-camp-consultation.jpg" alt="Medical camp consultation">
+      <div class="body">
+        <h3>Medical Camps</h3>
+        <p>Doctors, medicines and listening ears reaching villages where a clinic visit is otherwise a long journey.</p>
+      </div>
+    </article>
+    <article class="card-img">
+      <img src="/media/community-event.jpg" alt="Community meal service by Janani team">
+      <div class="body">
+        <h3>Community Meals</h3>
+        <p>Hot food served with care under the trees — because hunger should never be the story of the day.</p>
+      </div>
+    </article>
+    <article class="card-img">
+      <img src="/media/celebration-moment.jpg" alt="Celebration moment">
+      <div class="body">
+        <h3>Moments of Joy</h3>
+        <p>Festivals, small gatherings and the ordinary days that become extraordinary when shared.</p>
       </div>
     </article>
   </div>
