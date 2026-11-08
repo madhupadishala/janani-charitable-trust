@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Janani Charitable Trust · Care · Dignity · Action</title>
+<meta name="description" content="Janani Charitable Trust — community medical camps, blood donation, education support and celebrations that restore dignity across Telangana and Andhra Pradesh.">
+<link rel="stylesheet" href="/cms.css">
+<style>
+  :root { --green:#173c31; --orange:#d76433; --cream:#faf8f2; --ink:#1c2b24; }
+  body { background: var(--cream); margin:0; }
+  .hero {
+    min-height: 72vh;
+    background: linear-gradient(135deg, #0f2a22 0%, #173c31 55%, #2a5a4a 100%);
+    color: white;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 90px 24px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: url("PLACEHOLDER_HERO") center/cover no-repeat;
+    opacity: 0.25;
+  }
+  .hero-inner { position: relative; max-width: 820px; }
+  .hero h1 { font: 700 48px/1.12 Georgia, serif; margin: 0 0 18px; }
+  .hero p { font-size: 18px; line-height: 1.55; opacity: 0.92; max-width: 540px; margin: 0 auto 30px; }
+  .btn {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 14px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .btn.secondary { background: transparent; border: 2px solid rgba(255,255,255,.65); margin-left: 10px; }
+  .section { max-width: 1080px; margin: 0 auto; padding: 64px 24px; }
+  .section h2 { font: 700 34px Georgia, serif; margin: 0 0 10px; color: var(--green); }
+  .section .lead { font-size: 17px; color: #5a6b62; max-width: 600px; margin-bottom: 36px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .card-img {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e6e6dd;
+    box-shadow: 0 12px 36px #1c30200a;
+  }
+  .card-img img { width: 100%; height: 210px; object-fit: cover; display: block; }
+  .card-img .body { padding: 18px 20px 22px; }
+  .card-img h3 { margin: 0 0 6px; font: 650 17px system-ui; color: var(--green); }
+  .card-img p { margin: 0; font-size: 14px; color: #69776e; line-height: 1.5; }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin: 32px 0 8px;
+  }
+  .stat {
+    background: white;
+    border-radius: 14px;
+    padding: 22px 16px;
+    text-align: center;
+    border: 1px solid #e6e6dd;
+  }
+  .stat strong { display: block; font: 700 28px Georgia, serif; color: var(--orange); }
+  .stat span { font-size: 13px; color: #69776e; }
+  .cta {
+    background: var(--green);
+    color: white;
+    border-radius: 18px;
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .cta h2 { color: white; margin: 0 0 12px; }
+  .cta p { opacity: 0.9; max-width: 460px; margin: 0 auto 24px; }
+  footer {
+    background: #0f2a22;
+    color: #c5d4cc;
+    padding: 36px 24px;
+    text-align: center;
+    font-size: 14px;
+  }
+  footer a { color: white; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 34px; }
+    .btn.secondary { margin: 12px 0 0; display: inline-block; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <b>JANANI <small>CARE · DIGNITY · ACTION</small></b>
+  <div>
+    <a href="#work" style="margin-right:16px">Our Work</a>
+    <a href="#gallery" style="margin-right:16px">Gallery</a>
+    <a href="/admin.html">Team Login</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p style="letter-spacing:.16em;font-size:11px;opacity:.8;margin-bottom:14px">JANANI CHARITABLE TRUST</p>
+    <h1>Care that reaches the last mile.</h1>
+    <p>Medical camps, blood donation drives, school supplies and simple celebrations that restore dignity in communities across Telangana and Andhra Pradesh.</p>
+    <div>
+      <a class="btn" href="#work">See our work</a>
+      <a class="btn secondary" href="#contact">Partner with us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <h2>What we do</h2>
+  <p class="lead">From village medical camps to birthday gifts for children who rarely receive them, every activity is designed around one idea: every person deserves care and dignity.</p>
+  <div class="stats">
+    <div class="stat"><strong>Health</strong><span>Medical camps & medicines</span></div>
+    <div class="stat"><strong>Blood</strong><span>Donation drives</span></div>
+    <div class="stat"><strong>Education</strong><span>School kits & support</span></div>
+    <div class="stat"><strong>Joy</strong><span>Celebrations & community meals</span></div>
+  </div>
+</section>
+
+<section class="section" id="gallery" style="padding-top:12px">
+  <h2>Recent moments from the field</h2>
+  <p class="lead">Real photographs — the people, the care, and the quiet joy of service.</p>
+  <div class="grid">
+    <article class="card-img">
+      <img src="PLACEHOLDER_G1" alt="Blood donation camp organised by Janani Charitable Trust">
+      <div class="body">
+        <h3>Blood Donation Camp</h3>
+        <p>Volunteers and donors coming together so that no family is left without a critical unit of blood.</p>
+      </div>
+    </article>
+    <article class="card-img">
+      <img src="PLACEHOLDER_G2" alt="School supplies distribution by Janani Charitable Trust">
+      <div class="body">
+        <h3>School Supplies Drive</h3>
+        <p>Notebooks, kits and encouragement delivered to students in remote villages so learning never stops for want of materials.</p>
+      </div>
+    </article>
+    <article class="card-img">
+      <img src="PLACEHOLDER_G3" alt="Child receiving birthday gift from Janani">
+      <div class="body">
+        <h3>Birthday of Dignity</h3>
+        <p>A simple cake, a banana, a bottle of water — and a smile that says someone remembered.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="cta">
+    <h2>Join the work</h2>
+    <p>Whether you can volunteer a few hours, sponsor a camp, or simply share our stories — every hand helps us reach farther.</p>
+    <a class="btn" href="https://wa.me/?text=Hello%20Janani%20Charitable%20Trust%2C%20I%20would%20like%20to%20support%20your%20work." target="_blank" rel="noopener">Message us on WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Janani Charitable Trust</strong> · Care · Dignity · Action</p>
+  <p style="margin-top:8px">Hyderabad · Telangana & Andhra Pradesh</p>
+  <p style="margin-top:14px"><a href="/admin.html">Publishing Studio</a> · <a href="#work">Our Work</a></p>
+</footer>
+</body>
+</html>
