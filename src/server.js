@@ -106,11 +106,13 @@ const upload=multer({storage:multer.diskStorage({
  destination:mediaDir,
  filename:(req,f,cb)=>cb(null,randomUUID()+extname(f.originalname).toLowerCase())
 }),limits:{fileSize:3*1024*1024,files:1},fileFilter:(req,f,cb)=>cb(null,['image/jpeg','image/png','image/webp'].includes(f.mimetype))});
+app.get('/api/media',(req,res)=>res.json(db.prepare('SELECT path,caption,created_at FROM media ORDER BY created_at DESC,id DESC LIMIT 12').all()));
 app.post('/api/upload',auth,upload.single('photo'),(req,res)=>{
  if(!req.file)return fail(res,'Upload JPEG, PNG, or WebP up to 3 MB');
  const path='/uploads/'+req.file.filename;
- db.prepare('INSERT INTO media(path,author_id) VALUES(?,?)').run(path,req.user.id);
- log(req.user.id,'media.uploaded',path);res.status(201).json({url:path});
+ const caption=String(req.body?.caption||'Janani activity photograph').trim().slice(0,120)||'Janani activity photograph';
+ db.prepare('INSERT INTO media(path,caption,author_id) VALUES(?,?,?)').run(path,caption,req.user.id);
+ log(req.user.id,'media.uploaded',path);res.status(201).json({url:path,caption});
 });
 app.get('/api/audit',auth,admin,(req,res)=>res.json(db.prepare('SELECT a.*,u.email FROM audit a LEFT JOIN users u ON a.user_id=u.id ORDER BY a.id DESC LIMIT 100').all()));
 app.get('/admin',(req,res)=>res.sendFile(join(root,'public','admin.html')));
